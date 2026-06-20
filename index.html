@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RakthSetu | Blood Donation UI</title>
+    <meta name="description" content="RakthSetu accessible blood donation and emergency response UI prototype." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="drop" viewBox="0 0 24 24"><path d="M12 2.7c4 4.6 6.1 8.2 6.1 11.1a6.1 6.1 0 0 1-12.2 0C5.9 10.9 8 7.3 12 2.7Z" /></symbol>
+      <symbol id="hand" viewBox="0 0 24 24"><path d="M7.2 12V6.6a1.4 1.4 0 0 1 2.8 0v4h.8V4.8a1.4 1.4 0 0 1 2.8 0v5.8h.8V6.1a1.4 1.4 0 0 1 2.8 0v6h.7V9a1.4 1.4 0 0 1 2.8 0v6.1c0 4.1-2.8 6.8-6.9 6.8h-1.5c-2.4 0-3.8-1-5.2-2.7l-2.9-3.6a1.6 1.6 0 0 1 2.4-2.1l.6.5Z" /></symbol>
+      <symbol id="hospital" viewBox="0 0 24 24"><path d="M4 21V5.5L12 2l8 3.5V21h-5v-5H9v5H4Zm6-12v2h1.5v1.5h2V11H15V9h-1.5V7.5h-2V9H10Z" /></symbol>
+      <symbol id="map" viewBox="0 0 24 24"><path d="M12 22s7-6.1 7-12A7 7 0 1 0 5 10c0 5.9 7 12 7 12Zm0-9a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" /></symbol>
+      <symbol id="shield" viewBox="0 0 24 24"><path d="M12 2 4 5.2v6.4c0 4.7 3.4 8.5 8 10.4 4.6-1.9 8-5.7 8-10.4V5.2L12 2Zm-1 13.2-3-3 1.6-1.6 1.4 1.4 3.8-3.8 1.6 1.6-5.4 5.4Z" /></symbol>
+      <symbol id="bell" viewBox="0 0 24 24"><path d="M5 18h14l-1.6-2.3V11a5.4 5.4 0 0 0-10.8 0v4.7L5 18Zm4.5 1.2a2.7 2.7 0 0 0 5 0h-5Z" /></symbol>
+      <symbol id="gift" viewBox="0 0 24 24"><path d="M4 11h16v10H4V11Zm-1-5h5.2A2.8 2.8 0 0 1 12 3.4 2.8 2.8 0 0 1 15.8 6H21v4H3V6Zm7 0c0-1.3-2.6-1.3-2.6.1 0 .8.8.9 2.6.9V6Zm4 0v1c1.8 0 2.6-.1 2.6-.9 0-1.4-2.6-1.4-2.6-.1Z" /></symbol>
+      <symbol id="bot" viewBox="0 0 24 24"><path d="M11 2h2v3h3a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9a4 4 0 0 1 4-4h3V2Zm-3 9.2a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8Zm8 0a1.4 1.4 0 1 0 0-2.8 1.4 1.4 0 0 0 0 2.8ZM8 15h8v-2H8v2Z" /></symbol>
+      <symbol id="phone" viewBox="0 0 24 24"><path d="M7 3h3l1.4 4.2-2 1.4c1.1 2.3 2.7 4 5 5l1.4-2L20 13v3c0 2.8-2.3 5-5 4.6C8.9 19.8 4.2 15.1 3.4 9 3 6.3 4.2 3 7 3Z" /></symbol>
+      <symbol id="admin" viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5.1 3.8 8.8 9 10 5.2-1.2 9-4.9 9-10V6l-9-4Zm0 4.2a2.6 2.6 0 1 1 0 5.2 2.6 2.6 0 0 1 0-5.2Zm-5 10.4c.8-2.2 2.7-3.4 5-3.4s4.2 1.2 5 3.4c-1.2 1.2-2.9 2-5 2s-3.8-.8-5-2Z" /></symbol>
+    </svg>
+
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
+
+    <main class="login-view" id="loginView" aria-labelledby="loginTitle">
+      <section class="login-card">
+        <div class="brand-block">
+          <span class="logo-mark" aria-hidden="true"><svg><use href="#drop"></use></svg></span>
+          <div>
+            <strong>RakthSetu</strong>
+            <small>Connecting Lives Through Blood Donation</small>
+          </div>
+        </div>
+
+        <div class="login-copy">
+          <p class="eyebrow">Secure Access</p>
+          <h1 id="loginTitle">Login to RakthSetu</h1>
+          <p>Choose your role and continue with Google or email.</p>
+        </div>
+
+        <div class="role-picker" aria-label="Select user role">
+          <button type="button" class="role-option active" data-login-role="patient" aria-pressed="true">
+            <svg><use href="#drop"></use></svg><span>Patient</span>
+          </button>
+          <button type="button" class="role-option" data-login-role="donor" aria-pressed="false">
+            <svg><use href="#hand"></use></svg><span>Donor</span>
+          </button>
+          <button type="button" class="role-option" data-login-role="hospital" aria-pressed="false">
+            <svg><use href="#hospital"></use></svg><span>Hospital</span>
+          </button>
+          <button type="button" class="role-option" data-login-role="admin" aria-pressed="false">
+            <svg><use href="#admin"></use></svg><span>Admin</span>
+          </button>
+        </div>
+
+        <button type="button" class="google-button" id="googleLogin">
+          <span class="google-dot" aria-hidden="true">G</span>
+          <span>Continue with Google</span>
+        </button>
+
+        <div class="divider"><span>or</span></div>
+
+        <form class="login-form" id="emailLoginForm">
+          <label for="loginEmail">Email or phone</label>
+          <input id="loginEmail" name="email" type="text" autocomplete="username" placeholder="name@email.com" required />
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" name="password" type="password" autocomplete="current-password" placeholder="Password" required />
+          <label class="check-row" for="rememberMe">
+            <input id="rememberMe" type="checkbox" />
+            <span>Remember me</span>
+          </label>
+          <button type="submit" class="primary-button">Login</button>
+        </form>
+      </section>
+    </main>
+
+    <div class="app-view hidden" id="appView" aria-hidden="true">
+      <header class="app-header">
+        <div class="brand-block compact">
+          <span class="logo-mark" aria-hidden="true"><svg><use href="#drop"></use></svg></span>
+          <div>
+            <strong>RakthSetu</strong>
+            <small>Live Emergency Desk</small>
+          </div>
+        </div>
+        <nav class="top-nav" aria-label="RakthSetu modules">
+          <button type="button" class="nav-button active" data-panel="patient" aria-current="page">Request</button>
+          <button type="button" class="nav-button" data-panel="donor">Donor</button>
+          <button type="button" class="nav-button" data-panel="hospital">Hospital</button>
+          <button type="button" class="nav-button" data-panel="admin">Admin</button>
+        </nav>
+        <button type="button" class="secondary-button" id="logoutButton">Logout</button>
+      </header>
+
+      <main id="mainContent" class="content-shell">
+        <section class="panel active" id="patientPanel" data-panel="patient" aria-labelledby="patientTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Emergency Request</p>
+              <h1 id="patientTitle">Find nearby blood donors</h1>
+            </div>
+            <span class="status-pill" id="requestStatus">OPEN</span>
+          </div>
+
+          <div class="patient-grid">
+            <section class="control-panel" aria-labelledby="requestFormTitle">
+              <h2 id="requestFormTitle">Blood request</h2>
+              <div class="field-group">
+                <span class="field-label">Blood group</span>
+                <div class="blood-grid" id="bloodGrid" aria-label="Select blood group"></div>
+              </div>
+
+              <div class="field-row">
+                <div class="field-group">
+                  <span class="field-label">Units</span>
+                  <div class="stepper" aria-label="Units needed">
+                    <button type="button" id="decreaseUnits" aria-label="Decrease units">-</button>
+                    <output id="unitsOutput">2</output>
+                    <button type="button" id="increaseUnits" aria-label="Increase units">+</button>
+                  </div>
+                </div>
+                <div class="field-group">
+                  <span class="field-label">Urgency</span>
+                  <div class="segmented" id="urgencyGroup" aria-label="Select urgency">
+                    <button type="button" class="active" data-urgency="CRITICAL" aria-pressed="true">Critical</button>
+                    <button type="button" data-urgency="HIGH" aria-pressed="false">High</button>
+                    <button type="button" data-urgency="MEDIUM" aria-pressed="false">Medium</button>
+                  </div>
+                </div>
+              </div>
+
+              <label class="field-group" for="patientPhone">
+                <span class="field-label">Contact number</span>
+                <input id="patientPhone" type="tel" inputmode="tel" placeholder="+91 98765 43210" />
+              </label>
+
+              <button type="button" class="primary-button" id="broadcastButton">
+                <svg><use href="#bell"></use></svg>
+                <span>Broadcast emergency alert</span>
+              </button>
+            </section>
+
+            <section class="map-panel" aria-labelledby="mapTitle">
+              <div class="map-head">
+                <div>
+                  <h2 id="mapTitle">Live donor map</h2>
+                  <p id="mapDescription">City Care Hospital and five nearby eligible donors.</p>
+                </div>
+                <button type="button" class="secondary-button" id="centerMapButton">
+                  <svg><use href="#map"></use></svg>
+                  <span>Center map</span>
+                </button>
+              </div>
+
+              <div class="map-canvas" id="mapCanvas" aria-describedby="mapDescription">
+                <div class="map-road road-main"></div>
+                <div class="map-road road-ring"></div>
+                <div class="map-road road-side-one"></div>
+                <div class="map-road road-side-two"></div>
+                <div class="route-line"></div>
+
+                <button type="button" class="map-pin hospital-pin active" data-marker="hospital" aria-label="City Care Hospital, emergency request point">
+                  <svg><use href="#hospital"></use></svg>
+                  <span class="sr-only">City Care Hospital</span>
+                </button>
+                <button type="button" class="map-pin donor-pin pin-one" data-marker="asha" aria-label="Asha K, O negative donor, 1.4 kilometers away">
+                  O-
+                </button>
+                <button type="button" class="map-pin donor-pin pin-two" data-marker="rahul" aria-label="Rahul S, O negative donor, 2.1 kilometers away">
+                  O-
+                </button>
+                <button type="button" class="map-pin donor-pin pin-three" data-marker="meera" aria-label="Meera P, A negative donor, 2.8 kilometers away">
+                  A-
+                </button>
+                <button type="button" class="map-pin donor-pin pin-four" data-marker="imran" aria-label="Imran H, O positive donor, 3.2 kilometers away">
+                  O+
+                </button>
+                <button type="button" class="map-pin donor-pin pin-five" data-marker="kavya" aria-label="Kavya R, B negative donor, 4.6 kilometers away">
+                  B-
+                </button>
+
+                <div class="map-scale" aria-hidden="true">1 km</div>
+              </div>
+
+              <div class="map-detail" id="mapDetail" aria-live="polite"></div>
+            </section>
+          </div>
+
+          <section class="result-panel" aria-labelledby="matchedTitle">
+            <div class="list-head">
+              <h2 id="matchedTitle">AI matched donors</h2>
+              <span>Ranked by distance, eligibility, and history</span>
+            </div>
+            <div class="donor-list" id="donorList"></div>
+          </section>
+        </section>
+
+        <section class="panel" id="donorPanel" data-panel="donor" aria-labelledby="donorTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Donor Module</p>
+              <h1 id="donorTitle">Donation readiness</h1>
+            </div>
+            <button type="button" class="status-button active" id="availabilityButton" aria-pressed="true">Available today</button>
+          </div>
+          <div class="dashboard-grid">
+            <article class="metric-card"><svg><use href="#shield"></use></svg><small>Eligibility</small><strong>Ready</strong><span>Last donation: 70 days ago</span></article>
+            <article class="metric-card"><svg><use href="#gift"></use></svg><small>Rewards</small><strong>1,450 pts</strong><span>Premium tier progress: 45%</span></article>
+            <article class="metric-card"><svg><use href="#bell"></use></svg><small>Alerts</small><strong>3 nearby</strong><span>SMS and push enabled</span></article>
+          </div>
+        </section>
+
+        <section class="panel" id="hospitalPanel" data-panel="hospital" aria-labelledby="hospitalTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Hospital Module</p>
+              <h1 id="hospitalTitle">Inventory and verification</h1>
+            </div>
+            <span class="status-pill safe">Verified hospital</span>
+          </div>
+          <div class="hospital-grid">
+            <section class="control-panel" aria-labelledby="inventoryTitle">
+              <div class="list-head">
+                <h2 id="inventoryTitle">Blood inventory</h2>
+                <span>Live units</span>
+              </div>
+              <div class="inventory-grid" id="inventoryGrid"></div>
+            </section>
+            <section class="control-panel" aria-labelledby="forecastTitle">
+              <div class="list-head">
+                <h2 id="forecastTitle">Demand prediction</h2>
+                <span>Next 7 days</span>
+              </div>
+              <div class="forecast-list">
+                <div><strong>O-</strong><span class="bar"><i style="width: 92%"></i></span><em>Shortage risk</em></div>
+                <div><strong>B+</strong><span class="bar"><i style="width: 54%"></i></span><em>Stable</em></div>
+                <div><strong>AB-</strong><span class="bar"><i style="width: 77%"></i></span><em>Rare watch</em></div>
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section class="panel" id="adminPanel" data-panel="admin" aria-labelledby="adminTitle">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Admin Module</p>
+              <h1 id="adminTitle">Fraud monitoring and analytics</h1>
+            </div>
+            <span class="status-pill admin">Admin secure</span>
+          </div>
+          <div class="dashboard-grid">
+            <article class="metric-card"><svg><use href="#admin"></use></svg><small>Users</small><strong>1,284</strong><span>Donor, patient, hospital, admin roles</span></article>
+            <article class="metric-card"><svg><use href="#shield"></use></svg><small>Fraud alerts</small><strong>2</strong><span>Repeated claims under review</span></article>
+            <article class="metric-card"><svg><use href="#bot"></use></svg><small>AI chatbot</small><strong>24/7</strong><span>Emergency assistance enabled</span></article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>

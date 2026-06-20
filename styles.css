@@ -1,0 +1,1003 @@
+:root {
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --ink: #24313a;
+  --muted: #66737e;
+  --line: #dbe3ea;
+  --danger: #b91c2f;
+  --danger-dark: #8d1323;
+  --danger-soft: #ffe8ed;
+  --teal: #087b78;
+  --teal-soft: #def3f1;
+  --green: #16834a;
+  --green-soft: #e7f6ed;
+  --amber: #b86a00;
+  --amber-soft: #fff1d6;
+  --focus: #155cff;
+  --shadow: 0 20px 48px rgba(31, 44, 58, 0.14);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(185, 28, 47, 0.13), transparent 25rem),
+    radial-gradient(circle at 88% 12%, rgba(8, 123, 120, 0.13), transparent 24rem),
+    var(--bg);
+  color: var(--ink);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+  flex: 0 0 auto;
+}
+
+.icon-sprite,
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  transform: translateY(-140%);
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 900;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.login-view {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+}
+
+.login-card,
+.control-panel,
+.map-panel,
+.result-panel,
+.metric-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow);
+}
+
+.login-card {
+  display: grid;
+  width: min(100%, 680px);
+  gap: 20px;
+  padding: clamp(20px, 4vw, 38px);
+}
+
+.brand-block {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-block.compact {
+  min-width: 220px;
+}
+
+.logo-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--danger);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(185, 28, 47, 0.22);
+}
+
+.logo-mark svg {
+  width: 29px;
+  height: 29px;
+}
+
+.brand-block strong,
+.brand-block small {
+  display: block;
+}
+
+.brand-block strong {
+  font-size: 1.32rem;
+  line-height: 1.1;
+}
+
+.brand-block small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--danger);
+  font-size: 0.82rem;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  font-size: clamp(1.9rem, 4vw, 3.5rem);
+  line-height: 1.05;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 1.16rem;
+  line-height: 1.2;
+}
+
+.login-copy p:last-child {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  font-weight: 780;
+  line-height: 1.45;
+}
+
+.role-picker {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.role-option,
+.nav-button,
+.secondary-button,
+.status-button,
+.primary-button,
+.google-button {
+  min-height: 48px;
+  border-radius: 8px;
+  font-weight: 900;
+}
+
+.role-option {
+  display: grid;
+  min-height: 104px;
+  place-items: center;
+  gap: 8px;
+  border: 2px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  padding: 12px;
+}
+
+.role-option svg {
+  width: 30px;
+  height: 30px;
+  color: var(--danger);
+}
+
+.role-option.active {
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.google-button,
+.primary-button,
+.secondary-button,
+.status-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  padding: 0 16px;
+}
+
+.google-button {
+  min-height: 64px;
+  border: 1px solid #ccd4dd;
+  background: #fff;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.google-dot {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: conic-gradient(from -40deg, #4285f4, #34a853, #fbbc05, #ea4335, #4285f4);
+  color: #fff;
+  font-weight: 950;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.login-form {
+  display: grid;
+  gap: 10px;
+}
+
+.login-form label,
+.field-label {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.login-form input,
+.field-group input {
+  width: 100%;
+  min-height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0 12px;
+  font-weight: 780;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+}
+
+.check-row input {
+  width: 20px;
+  height: 20px;
+}
+
+.primary-button {
+  background: var(--danger);
+  color: #fff;
+  box-shadow: 0 14px 28px rgba(185, 28, 47, 0.23);
+}
+
+.secondary-button {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+}
+
+.app-view {
+  width: min(1240px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 16px 0 34px;
+}
+
+.app-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.nav-button {
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  padding: 0 14px;
+}
+
+.nav-button.active {
+  border-color: var(--danger);
+  background: var(--danger);
+  color: #fff;
+}
+
+.content-shell {
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.section-heading,
+.map-head,
+.list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.status-pill {
+  display: inline-grid;
+  min-height: 40px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--danger);
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 0.86rem;
+  font-weight: 950;
+}
+
+.status-pill.safe,
+.status-button.active {
+  background: var(--green);
+  color: #fff;
+}
+
+.status-pill.admin {
+  background: var(--ink);
+}
+
+.patient-grid,
+.hospital-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.8fr) minmax(420px, 1.2fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.control-panel,
+.map-panel,
+.result-panel {
+  padding: clamp(15px, 1.8vw, 22px);
+}
+
+.field-group {
+  display: grid;
+  gap: 9px;
+}
+
+.field-group + .field-group,
+.field-row + .field-group {
+  margin-top: 16px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.8fr) minmax(220px, 1.2fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.blood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(62px, 1fr));
+  gap: 8px;
+}
+
+.blood-button {
+  min-height: 58px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--danger);
+  font-size: 1.15rem;
+  font-weight: 950;
+}
+
+.blood-button.active {
+  border-color: var(--danger);
+  background: var(--danger);
+  color: #fff;
+}
+
+.stepper {
+  display: grid;
+  grid-template-columns: 52px 1fr 52px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.stepper button {
+  min-height: 52px;
+  border: 0;
+  background: var(--teal-soft);
+  color: var(--teal);
+  font-size: 1.2rem;
+  font-weight: 950;
+}
+
+.stepper output {
+  display: grid;
+  place-items: center;
+  background: #fff;
+  font-size: 1.35rem;
+  font-weight: 950;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.segmented button {
+  min-height: 52px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.segmented button.active {
+  border-color: var(--danger);
+  background: var(--danger);
+  color: #fff;
+}
+
+#broadcastButton {
+  width: 100%;
+  min-height: 62px;
+  margin-top: 18px;
+  font-size: 1.02rem;
+}
+
+.map-head p {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-weight: 760;
+}
+
+.map-canvas {
+  position: relative;
+  min-height: 420px;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(8, 123, 120, 0.12) 1px, transparent 1px) 0 0 / 46px 46px,
+    linear-gradient(0deg, rgba(8, 123, 120, 0.12) 1px, transparent 1px) 0 0 / 46px 46px,
+    linear-gradient(135deg, #f5fbfb, #ffffff 62%, #fff7f0);
+}
+
+.map-canvas::before,
+.map-canvas::after {
+  position: absolute;
+  color: rgba(36, 49, 58, 0.28);
+  font-size: clamp(2.2rem, 8vw, 7rem);
+  font-weight: 950;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.map-canvas::before {
+  content: "N";
+  top: 18px;
+  left: 18px;
+}
+
+.map-canvas::after {
+  content: "RakthSetu";
+  right: 18px;
+  bottom: 14px;
+  font-size: clamp(1.4rem, 4vw, 3.4rem);
+}
+
+.map-road {
+  position: absolute;
+  z-index: 1;
+  border-radius: 999px;
+  background: rgba(108, 117, 125, 0.22);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.48);
+}
+
+.road-main {
+  left: -10%;
+  top: 48%;
+  width: 120%;
+  height: 46px;
+  transform: rotate(-8deg);
+}
+
+.road-ring {
+  left: 22%;
+  top: 18%;
+  width: 44%;
+  height: 62%;
+  border: 28px solid rgba(108, 117, 125, 0.18);
+  background: transparent;
+}
+
+.road-side-one {
+  left: 56%;
+  top: -8%;
+  width: 42px;
+  height: 115%;
+  transform: rotate(18deg);
+}
+
+.road-side-two {
+  left: 14%;
+  top: -6%;
+  width: 34px;
+  height: 112%;
+  transform: rotate(-24deg);
+}
+
+.route-line {
+  position: absolute;
+  z-index: 2;
+  left: 37%;
+  top: 27%;
+  width: 33%;
+  height: 34%;
+  border-top: 6px solid rgba(185, 28, 47, 0.64);
+  border-right: 6px solid rgba(185, 28, 47, 0.64);
+  border-radius: 8px;
+  transform: rotate(-6deg);
+}
+
+.map-pin {
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 950;
+  box-shadow: 0 12px 28px rgba(31, 44, 58, 0.22);
+}
+
+.map-pin.active {
+  outline: 4px solid rgba(21, 92, 255, 0.34);
+}
+
+.hospital-pin {
+  left: 47%;
+  top: 46%;
+  width: 64px;
+  height: 64px;
+  background: var(--danger);
+}
+
+.hospital-pin svg {
+  width: 30px;
+  height: 30px;
+}
+
+.pin-one {
+  left: 30%;
+  top: 25%;
+}
+
+.pin-two {
+  left: 63%;
+  top: 24%;
+}
+
+.pin-three {
+  left: 21%;
+  top: 66%;
+}
+
+.pin-four {
+  left: 72%;
+  top: 62%;
+}
+
+.pin-five {
+  left: 47%;
+  top: 14%;
+}
+
+.map-scale {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  z-index: 5;
+  min-width: 94px;
+  border-bottom: 5px solid var(--ink);
+  color: var(--ink);
+  padding-bottom: 6px;
+  font-weight: 950;
+}
+
+.map-detail {
+  display: grid;
+  gap: 4px;
+  min-height: 74px;
+  margin-top: 12px;
+  border-radius: 8px;
+  background: var(--teal-soft);
+  padding: 12px;
+}
+
+.map-detail strong,
+.map-detail span {
+  display: block;
+}
+
+.map-detail span {
+  color: var(--muted);
+  font-weight: 780;
+}
+
+.result-panel {
+  margin-top: 16px;
+}
+
+.list-head span {
+  display: inline-grid;
+  min-height: 30px;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--teal-soft);
+  color: var(--teal);
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.donor-list,
+.inventory-grid,
+.forecast-list {
+  display: grid;
+  gap: 10px;
+}
+
+.donor-row {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  min-height: 72px;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding: 10px 0;
+}
+
+.blood-badge {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--danger);
+  color: #fff;
+  font-weight: 950;
+}
+
+.donor-row small {
+  display: block;
+  color: var(--muted);
+  font-weight: 780;
+}
+
+.call-button {
+  min-width: 46px;
+  min-height: 46px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--green);
+  color: #fff;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metric-card {
+  display: grid;
+  min-height: 180px;
+  align-content: center;
+  gap: 8px;
+  padding: 18px;
+}
+
+.metric-card svg {
+  width: 34px;
+  height: 34px;
+  color: var(--danger);
+}
+
+.metric-card small {
+  color: var(--muted);
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.metric-card strong {
+  font-size: 1.5rem;
+}
+
+.metric-card span {
+  color: var(--muted);
+  font-weight: 780;
+}
+
+.inventory-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.stock-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px;
+}
+
+.stock-card.low {
+  border-color: rgba(185, 28, 47, 0.46);
+  background: var(--danger-soft);
+}
+
+.stock-card strong {
+  display: block;
+  color: var(--danger);
+  font-size: 1.25rem;
+}
+
+.stock-card output {
+  display: block;
+  margin: 4px 0 10px;
+  font-size: 1.6rem;
+  font-weight: 950;
+}
+
+.stock-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.stock-actions button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 950;
+}
+
+.stock-actions button:first-child {
+  background: var(--ink);
+}
+
+.forecast-list div {
+  display: grid;
+  grid-template-columns: 44px 1fr minmax(90px, auto);
+  align-items: center;
+  gap: 10px;
+}
+
+.forecast-list strong {
+  color: var(--danger);
+}
+
+.forecast-list em {
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 850;
+}
+
+.bar {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e6ebef;
+}
+
+.bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--teal), var(--danger));
+}
+
+.toast {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 30;
+  max-width: min(360px, calc(100% - 36px));
+  transform: translateY(18px);
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  padding: 12px 15px;
+  font-weight: 900;
+  box-shadow: var(--shadow);
+  transition: 160ms ease;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (max-width: 1000px) {
+  .app-header {
+    grid-template-columns: 1fr;
+  }
+
+  .top-nav {
+    justify-content: flex-start;
+  }
+
+  .patient-grid,
+  .hospital-grid,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-canvas {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 720px) {
+  .login-view {
+    align-items: start;
+    padding: 10px;
+  }
+
+  .login-card,
+  .control-panel,
+  .map-panel,
+  .result-panel {
+    padding: 15px;
+  }
+
+  .role-picker,
+  .field-row,
+  .segmented {
+    grid-template-columns: 1fr;
+  }
+
+  .role-option {
+    min-height: 72px;
+    grid-template-columns: 44px 1fr;
+    justify-items: start;
+  }
+
+  .app-view {
+    width: min(100% - 18px, 560px);
+    padding-top: 10px;
+  }
+
+  .section-heading,
+  .map-head,
+  .list-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .blood-grid,
+  .inventory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .map-canvas {
+    min-height: 330px;
+    aspect-ratio: 4 / 5;
+  }
+
+  .map-pin {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hospital-pin {
+    width: 58px;
+    height: 58px;
+  }
+
+  .donor-row {
+    grid-template-columns: 50px 1fr;
+  }
+
+  .call-button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .forecast-list div {
+    grid-template-columns: 44px 1fr;
+  }
+
+  .forecast-list em {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 420px) {
+  .blood-grid,
+  .inventory-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .top-nav,
+  .secondary-button,
+  .primary-button,
+  .google-button {
+    width: 100%;
+  }
+
+  .nav-button {
+    flex: 1 1 45%;
+  }
+}
